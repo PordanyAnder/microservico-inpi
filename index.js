@@ -12,10 +12,12 @@ app.get('/buscar', async (req, res) => {
   let browser;
   try {
     browser = await puppeteer.launch({
-      headless: true,
-      executablePath: '/usr/bin/google-chrome',
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+const browser = await puppeteer.launch({
+  headless: true,
+  executablePath: '/usr/bin/chromium-browser',
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
+
 
     const page = await browser.newPage();
     await page.goto('https://busca.inpi.gov.br/pePI/', { waitUntil: 'networkidle2' });
