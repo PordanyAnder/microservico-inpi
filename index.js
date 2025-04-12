@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 
 const app = express();
 
@@ -13,7 +13,8 @@ app.get('/buscar', async (req, res) => {
   try {
 browser = await puppeteer.launch({
   headless: true,
-  executablePath: '/usr/bin/chromium-browser',
+ const browser = await puppeteer.launch({
+  headless: true,
   args: ['--no-sandbox', '--disable-setuid-sandbox']
 });
 
