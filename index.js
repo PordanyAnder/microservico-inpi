@@ -1,4 +1,3 @@
-
 const express = require('express');
 const puppeteer = require('puppeteer-core');
 
@@ -14,6 +13,7 @@ app.get('/buscar', async (req, res) => {
   try {
     browser = await puppeteer.launch({
       headless: true,
+      executablePath: '/usr/bin/google-chrome',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
@@ -86,3 +86,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor iniciado na porta ${PORT}`);
 });
+
